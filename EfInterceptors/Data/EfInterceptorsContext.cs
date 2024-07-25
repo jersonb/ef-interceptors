@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using EfInterceptors.Models;
 using Microsoft.EntityFrameworkCore;
-using EfInterceptors.Models;
 
-namespace EfInterceptors.Data
+namespace EfInterceptors.Data;
+
+public class EfInterceptorsContext(DbContextOptions<EfInterceptorsContext> options)
+    : DbContext(options)
 {
-    public class EfInterceptorsContext : DbContext
-    {
-        public EfInterceptorsContext (DbContextOptions<EfInterceptorsContext> options)
-            : base(options)
-        {
-        }
-
-        public DbSet<EfInterceptors.Models.Product> Product { get; set; } = default!;
-    }
+    public DbSet<Product> Product { get; set; } = default!;
 }
