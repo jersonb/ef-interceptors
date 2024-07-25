@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfInterceptors", "EfInterceptors\EfInterceptors.csproj", "{D678CF46-6402-425F-8406-F1992831B24D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D678CF46-6402-425F-8406-F1992831B24D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D678CF46-6402-425F-8406-F1992831B24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D678CF46-6402-425F-8406-F1992831B24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D678CF46-6402-425F-8406-F1992831B24D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6D7CE45B-9F80-4F9C-98A2-3A37310A477B}
+	EndGlobalSection
+EndGlobal
