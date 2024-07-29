@@ -1,4 +1,5 @@
 ﻿using EfInterceptors.Data;
+using EfInterceptors.Data.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,9 +14,18 @@ var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("EfInterceptorsContext")
     ?? throw new InvalidOperationException("Connection string 'EfInterceptorsContext' not found.");
 
-services.AddDbContext<EfInterceptorsContext>((sp,options) =>
+services.AddSingleton<LogCallOrderOnSaveInterceptor>();
+services.AddSingleton<LogContentParamsOnSaveInterceptor>();
+services.AddSingleton<LogEntriesDataOnSaveInterceptor>();
+
+services.AddDbContext<EfInterceptorsContext>((sp, options) =>
 {
     options.UseSqlite(connectionString);
+    options.AddInterceptors(
+        sp.GetRequiredService<LogCallOrderOnSaveInterceptor>(),
+        sp.GetRequiredService<LogContentParamsOnSaveInterceptor>(),
+        sp.GetRequiredService<LogEntriesDataOnSaveInterceptor>()
+        );
 });
 
 services.AddControllers();
