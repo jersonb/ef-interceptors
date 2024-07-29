@@ -2,7 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Logging
+    .ClearProviders()
+    .AddSimpleConsole(x =>
+{
+    x.TimestampFormat = "[HH:mm:ss] ";
+});
 var services = builder.Services;
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("EfInterceptorsContext")
