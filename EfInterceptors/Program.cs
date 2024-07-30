@@ -1,5 +1,6 @@
 ﻿using EfInterceptors.Data;
-using EfInterceptors.Data.Interceptors;
+using EfInterceptors.Data.Interceptors.DbCommands;
+using EfInterceptors.Data.Interceptors.SaveChanges;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +18,7 @@ var connectionString = configuration.GetConnectionString("EfInterceptorsContext"
 services.AddSingleton<LogCallOrderOnSaveInterceptor>();
 services.AddSingleton<LogContentParamsOnSaveInterceptor>();
 services.AddSingleton<LogEntriesDataOnSaveInterceptor>();
+services.AddSingleton<LogDbCommandInterceptor>();
 
 services.AddDbContext<EfInterceptorsContext>((sp, options) =>
 {
@@ -24,8 +26,8 @@ services.AddDbContext<EfInterceptorsContext>((sp, options) =>
     options.AddInterceptors(
         sp.GetRequiredService<LogCallOrderOnSaveInterceptor>(),
         sp.GetRequiredService<LogContentParamsOnSaveInterceptor>(),
-        sp.GetRequiredService<LogEntriesDataOnSaveInterceptor>()
-        );
+        sp.GetRequiredService<LogEntriesDataOnSaveInterceptor>(),
+        sp.GetRequiredService<LogDbCommandInterceptor>());
 });
 
 services.AddControllers();

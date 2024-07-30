@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.OpenApi.Extensions;
 
-namespace EfInterceptors.Data.Interceptors;
+namespace EfInterceptors.Data.Interceptors.SaveChanges;
 
 public class LogEntriesDataOnSaveInterceptor(ILogger<LogEntriesDataOnSaveInterceptor> logger)
     : SaveChangesInterceptor

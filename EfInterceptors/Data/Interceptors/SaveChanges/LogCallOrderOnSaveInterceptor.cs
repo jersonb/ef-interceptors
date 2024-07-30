@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace EfInterceptors.Data.Interceptors;
+namespace EfInterceptors.Data.Interceptors.SaveChanges;
 
 public class LogCallOrderOnSaveInterceptor(ILogger<LogCallOrderOnSaveInterceptor> logger)
     : SaveChangesInterceptor

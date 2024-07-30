@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace EfInterceptors.Data.Interceptors;
+namespace EfInterceptors.Data.Interceptors.SaveChanges;
 
 public class LogContentParamsOnSaveInterceptor(ILogger<LogContentParamsOnSaveInterceptor> logger)
     : SaveChangesInterceptor
